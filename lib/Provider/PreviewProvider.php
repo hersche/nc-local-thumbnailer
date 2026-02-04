@@ -39,7 +39,11 @@ class PreviewProvider implements IProviderV2 {
             $content = $thumbFile->getContent();
             
             $image = new \OCP\Image();
-            $image->loadFromData($content);
+            if (method_exists($image, 'loadFromData')) {
+                $image->loadFromData($content);
+            } else {
+                $image->load($content);
+            }
             
             if ($image->valid()) {
                 return $image;
