@@ -13,6 +13,7 @@ class Capabilities implements ICapability {
                     'batch_exists' => true,
                     'sharding' => true,
                     'secret_header' => true,
+                    'delete_all' => true,
                 ],
             ],
         ];

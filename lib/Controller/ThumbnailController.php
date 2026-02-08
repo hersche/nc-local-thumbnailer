@@ -163,6 +163,36 @@ class ThumbnailController extends Controller {
      * @NoAdminRequired
      * @NoCSRFRequired
      */
+    public function deleteAll() {
+        if (!$this->checkSecret()) {
+            return ['status' => 'error', 'message' => 'Invalid secret'];
+        }
+
+        try {
+            $user = $this->userSession->getUser();
+            if (!$user) {
+                return ['status' => 'error', 'message' => 'Not authenticated'];
+            }
+
+            try {
+                $thumbsFolder = $this->appData->getFolder('thumbs');
+                $thumbsFolder->delete();
+                // Re-create it immediately so it's ready for new uploads
+                $this->appData->newFolder('thumbs');
+            } catch (NotFoundException $e) {
+                // Already empty
+            }
+
+            return ['status' => 'success', 'message' => 'All thumbnails deleted'];
+        } catch (\Exception $e) {
+            return ['status' => 'error', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * @NoAdminRequired
+     * @NoCSRFRequired
+     */
     public function batchExists(array $paths) {
         if (!$this->checkSecret()) {
             return ['status' => 'error', 'message' => 'Invalid secret'];
