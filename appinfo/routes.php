@@ -12,5 +12,10 @@ return [
             'url' => '/thumbnail/exists',
             'verb' => 'GET',
         ],
+        [
+            'name' => 'thumbnail#batch_exists',
+            'url' => '/thumbnail/batchExists',
+            'verb' => 'POST',
+        ],
     ],
 ];

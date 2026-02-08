@@ -3,12 +3,12 @@
     <id>localthumbs</id>
     <name>Local Thumbnailer Integration</name>
     <summary>API and Preview Provider for externally generated thumbnails</summary>
-    <description>Allows uploading thumbnails from a local machine via API and using them as native Nextcloud previews.</description>
-    <version>1.0.0</version>
+    <description>Allows uploading thumbnails from a local machine via API and using them as native Nextcloud previews. Part of the LocalNCThumbnailer suite. More info: https://github.com/hersche/nc-local-thumbnailer/ and https://github.com/hersche/local-nc-local-thumbnailer/</description>
+    <version>1.0.1</version>
     <licence>agpl</licence>
     <author>Gemini</author>
     <category>multimedia</category>
-    <bugs>https://github.com/example/localthumbnailer/issues</bugs>
+    <bugs>https://github.com/hersche/nc-local-thumbnailer/issues</bugs>
     <dependencies>
         <nextcloud min-version="25" max-version="32"/>
     </dependencies>
